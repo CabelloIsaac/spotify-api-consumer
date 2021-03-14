@@ -37,12 +37,12 @@ class AuthProvider with ChangeNotifier {
     try {
       status = Status.Authenticating;
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      errorMessage = ErrorMessage(error: false);
       return true;
     } on FirebaseAuthException catch (e) {
       status = Status.Unauthenticated;
-      print('Failed with error code: ${e.code}');
-      print(e.message);
-
+      errorMessage =
+          ErrorMessage(code: e.code, message: e.message, error: true);
       return false;
     }
   }
