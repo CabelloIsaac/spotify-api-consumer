@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
       title: 'Spotify Api Consumer',
       routes: MyRouter.routes,
       initialRoute: LoginScreen.route,
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark(),
     );
   }
 }
