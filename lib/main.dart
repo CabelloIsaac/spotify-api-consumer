@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
       routes: MyRouter.routes,
       initialRoute: LoginScreen.route,
       themeMode: ThemeMode.dark,
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark().copyWith(
+        accentColor: Colors.green,
+        primaryColor: Colors.green,
+      ),
     );
   }
 }
