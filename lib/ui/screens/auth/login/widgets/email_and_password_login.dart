@@ -7,9 +7,6 @@ class EmailAndPasswordLogin extends StatefulWidget {
 
 class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   final _formKey = GlobalKey<FormState>();
-
-  bool _fieldsValidated = false;
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -32,7 +29,7 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
             child: ElevatedButton.icon(
               onPressed: () {},
               icon: Icon(Icons.email),
-              label: Text("Sign in with email"),
+              label: Text("Sign In With Email"),
             ),
           ),
         ],
@@ -41,18 +38,12 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   }
 
   String _validatorEmail(String value) {
-    if (value.trim().isEmpty) {
-      _fieldsValidated = false;
-      return "Please, enter your email address";
-    }
+    if (value.trim().isEmpty) return "Please, enter your email address";
     return null;
   }
 
   String _validatorPassword(String value) {
-    if (value.trim().isEmpty) {
-      _fieldsValidated = false;
-      return "Please, enter your password";
-    }
+    if (value.trim().isEmpty) return "Please, enter your password";
     return null;
   }
 }
