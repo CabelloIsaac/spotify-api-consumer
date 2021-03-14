@@ -21,6 +21,11 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark().copyWith(
         accentColor: Colors.green,
         primaryColor: Colors.green,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.green,
+          ),
+        ),
       ),
     );
   }
