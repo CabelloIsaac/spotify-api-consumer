@@ -1,5 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:spotify_api_consumer/providers/auth_provider.dart';
 
 class EmailAndPasswordLogin extends StatefulWidget {
   @override
@@ -9,18 +11,27 @@ class EmailAndPasswordLogin extends StatefulWidget {
 class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   final _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
+  AuthProvider _authProvider;
+
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    _authProvider = Provider.of<AuthProvider>(context);
+
     return Form(
       key: _formKey,
       child: Column(
         children: [
           TextFormField(
+            controller: _controllerEmail,
             validator: _validatorEmail,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             decoration: InputDecoration(labelText: "Email"),
           ),
           TextFormField(
+            controller: _controllerPassword,
             validator: _validatorPassword,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             decoration: InputDecoration(
@@ -69,7 +80,9 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
 
   void _login() {
     if (_formKey.currentState.validate()) {
-      print("Validated");
+      String email = _controllerEmail.text.trim();
+      String password = _controllerEmail.text.trim();
+      _authProvider.signInWithEmailAndPassword(email, password);
     } else {
       print("Error in some field");
     }

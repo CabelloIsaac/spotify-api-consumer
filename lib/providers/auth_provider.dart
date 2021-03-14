@@ -1,9 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 
 enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 
 class AuthProvider with ChangeNotifier {
+  static const String USER_NOT_FOUND_ERROR = "user-not-found";
+  static const String WRONG_PASSWORD_ERROR = "wrong-password";
+
   firebase.FirebaseAuth _auth;
   firebase.User _user;
   Status _status = Status.Uninitialized;
@@ -26,8 +30,10 @@ class AuthProvider with ChangeNotifier {
       status = Status.Authenticating;
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return true;
-    } catch (e) {
+    } on FirebaseAuthException catch (e) {
       status = Status.Unauthenticated;
+      print('Failed with error code: ${e.code}');
+      print(e.message);
       return false;
     }
   }
