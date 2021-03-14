@@ -8,6 +8,7 @@ class EmailAndPasswordLogin extends StatefulWidget {
 
 class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   final _formKey = GlobalKey<FormState>();
+  bool _obscurePassword = true;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -22,7 +23,15 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
           TextFormField(
             validator: _validatorPassword,
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            decoration: InputDecoration(labelText: "Password"),
+            decoration: InputDecoration(
+              labelText: "Password",
+              suffixIcon: IconButton(
+                icon: Icon(
+                    _obscurePassword ? Icons.visibility_off : Icons.visibility),
+                onPressed: _showOrHidePassord,
+              ),
+            ),
+            obscureText: _obscurePassword,
           ),
           SizedBox(height: 20),
           SizedBox(
@@ -36,6 +45,12 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
         ],
       ),
     );
+  }
+
+  void _showOrHidePassord() {
+    setState(() {
+      _obscurePassword = !_obscurePassword;
+    });
   }
 
   String _validatorEmail(String value) {
