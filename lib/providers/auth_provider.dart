@@ -8,6 +8,7 @@ enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 class AuthProvider with ChangeNotifier {
   static const String USER_NOT_FOUND_ERROR = "user-not-found";
   static const String WRONG_PASSWORD_ERROR = "wrong-password";
+  static const String WEAK_PASSWORD_ERROR = "weak-password";
 
   firebase.FirebaseAuth _auth;
   firebase.User _user;
@@ -59,20 +60,8 @@ class AuthProvider with ChangeNotifier {
       print(e.code);
       print(e.message);
       status = Status.Unauthenticated;
-
-      // if (e.toString().contains(ERROR_WRONG_PASSWORD)) {
-      //   return ERROR_WRONG_PASSWORD;
-      // } else if (e.toString().contains(ERROR_TOO_MANY_REQUESTS)) {
-      //   return ERROR_TOO_MANY_REQUESTS;
-      // } else if (e.toString().contains(ERROR_USER_NOT_FOUND)) {
-      //   return ERROR_USER_NOT_FOUND;
-      // } else if (e.toString().contains(ERROR_NETWORK_REQUEST_FAILED)) {
-      //   return ERROR_NETWORK_REQUEST_FAILED;
-      // } else if (e.toString().contains(ERROR_EMAIL_ALREADY_IN_USE)) {
-      //   return ERROR_EMAIL_ALREADY_IN_USE;
-      // } else {
-      //   return '';
-      // }
+      errorMessage =
+          ErrorMessage(code: e.code, message: e.message, error: true);
     }
   }
 
