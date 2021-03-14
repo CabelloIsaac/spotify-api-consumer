@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:spotify_api_consumer/auth_manager.dart';
+import 'package:spotify_api_consumer/providers/auth_provider.dart';
 import 'package:spotify_api_consumer/router.dart';
-import 'package:spotify_api_consumer/ui/screens/auth/login/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,18 +14,23 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Spotify Api Consumer',
-      routes: MyRouter.routes,
-      initialRoute: LoginScreen.route,
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData.dark().copyWith(
-        accentColor: Colors.green,
-        primaryColor: Colors.green,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.green,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider.instance()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Spotify Api Consumer',
+        routes: MyRouter.routes,
+        home: AuthScreenManager(),
+        themeMode: ThemeMode.dark,
+        darkTheme: ThemeData.dark().copyWith(
+          accentColor: Colors.green,
+          primaryColor: Colors.green,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+            ),
           ),
         ),
       ),
