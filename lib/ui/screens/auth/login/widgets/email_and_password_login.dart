@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class EmailAndPasswordLogin extends StatefulWidget {
@@ -38,7 +39,11 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   }
 
   String _validatorEmail(String value) {
-    if (value.trim().isEmpty) return "Please, enter your email address";
+    if (value.trim().isEmpty) {
+      return "Please, enter your email address";
+    } else if (!EmailValidator.validate(value.trim())) {
+      return "Please, enter a valid email address";
+    }
     return null;
   }
 
