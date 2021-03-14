@@ -12,7 +12,7 @@ class AuthScreenManager extends StatelessWidget {
           case Status.Authenticated:
             return Container();
           default:
-            return Container();
+            return LoginScreen();
         }
       },
     );

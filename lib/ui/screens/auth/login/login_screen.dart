@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:spotify_api_consumer/providers/auth_provider.dart';
 
 import 'widgets/email_and_password_login.dart';
 import 'widgets/header.dart';
@@ -9,6 +11,7 @@ class LoginScreen extends StatelessWidget {
   static final route = "/LoginScreen";
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
