@@ -81,7 +81,7 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   void _login() {
     if (_formKey.currentState.validate()) {
       String email = _controllerEmail.text.trim();
-      String password = _controllerEmail.text.trim();
+      String password = _controllerPassword.text.trim();
       _authProvider.signInWithEmailAndPassword(email, password);
     } else {
       print("Error in some field");

@@ -10,7 +10,14 @@ class AuthScreenManager extends StatelessWidget {
       builder: (context, AuthProvider authProvider, _) {
         switch (authProvider.status) {
           case Status.Authenticated:
-            return Container();
+            return Container(
+              child: ElevatedButton(
+                child: Text("Signout"),
+                onPressed: () {
+                  authProvider.signOut();
+                },
+              ),
+            );
           default:
             return LoginScreen();
         }
