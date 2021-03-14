@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
-class EmailAndPasswordLogin extends StatelessWidget {
+class EmailAndPasswordLogin extends StatefulWidget {
+  @override
+  _EmailAndPasswordLoginState createState() => _EmailAndPasswordLoginState();
+}
+
+class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   final _formKey = GlobalKey<FormState>();
+
   bool _fieldsValidated = false;
 
   @override
