@@ -27,7 +27,7 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: _login,
               icon: Icon(Icons.email),
               label: Text("Sign In With Email"),
             ),
@@ -45,5 +45,13 @@ class _EmailAndPasswordLoginState extends State<EmailAndPasswordLogin> {
   String _validatorPassword(String value) {
     if (value.trim().isEmpty) return "Please, enter your password";
     return null;
+  }
+
+  void _login() {
+    if (_formKey.currentState.validate()) {
+      print("Validated");
+    } else {
+      print("Error in some field");
+    }
   }
 }
