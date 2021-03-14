@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
+import 'package:spotify_api_consumer/models/error_message.dart';
 
 enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 
@@ -11,6 +12,7 @@ class AuthProvider with ChangeNotifier {
   firebase.FirebaseAuth _auth;
   firebase.User _user;
   Status _status = Status.Uninitialized;
+  ErrorMessage _errorMessage;
 
   AuthProvider.instance() : _auth = firebase.FirebaseAuth.instance {
     _auth.authStateChanges().listen(_onAuthStateChanged);
@@ -19,9 +21,15 @@ class AuthProvider with ChangeNotifier {
   Status get status => _status;
   firebase.User get user => _user;
   firebase.FirebaseAuth get auth => _auth;
+  ErrorMessage get errorMessage => _errorMessage;
 
   set status(Status value) {
     _status = value;
+    notifyListeners();
+  }
+
+  set errorMessage(ErrorMessage value) {
+    _errorMessage = value;
     notifyListeners();
   }
 
@@ -34,6 +42,7 @@ class AuthProvider with ChangeNotifier {
       status = Status.Unauthenticated;
       print('Failed with error code: ${e.code}');
       print(e.message);
+
       return false;
     }
   }
