@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1001163737635",
+    "project_id": "job-applications-6f3b9",
+    "storage_bucket": "job-applications-6f3b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001163737635:android:8979409aa683462dd1ff96",
+        "android_client_info": {
+          "package_name": "com.cabelloisaac.spotify_api_consumer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001163737635-f6vjfccla4p1jgclt9h62accbsqvfs98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE9gUj6t6-PPkt3Ppe0KBZtL06wdAnPHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001163737635-f6vjfccla4p1jgclt9h62accbsqvfs98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
