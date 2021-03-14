@@ -33,17 +33,46 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> signInWithEmailAndPassword(String email, String password) async {
+  Future<void> signInWithEmailAndPassword(String email, String password) async {
     try {
       status = Status.Authenticating;
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       errorMessage = ErrorMessage(error: false);
-      return true;
     } on FirebaseAuthException catch (e) {
       status = Status.Unauthenticated;
       errorMessage =
           ErrorMessage(code: e.code, message: e.message, error: true);
-      return false;
+
+      if (e.code == USER_NOT_FOUND_ERROR) {
+        signUp(email, password);
+      }
+    }
+  }
+
+  Future<void> signUp(String email, String password) async {
+    try {
+      status = Status.Authenticating;
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      errorMessage = ErrorMessage(error: false);
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+      print(e.message);
+      status = Status.Unauthenticated;
+
+      // if (e.toString().contains(ERROR_WRONG_PASSWORD)) {
+      //   return ERROR_WRONG_PASSWORD;
+      // } else if (e.toString().contains(ERROR_TOO_MANY_REQUESTS)) {
+      //   return ERROR_TOO_MANY_REQUESTS;
+      // } else if (e.toString().contains(ERROR_USER_NOT_FOUND)) {
+      //   return ERROR_USER_NOT_FOUND;
+      // } else if (e.toString().contains(ERROR_NETWORK_REQUEST_FAILED)) {
+      //   return ERROR_NETWORK_REQUEST_FAILED;
+      // } else if (e.toString().contains(ERROR_EMAIL_ALREADY_IN_USE)) {
+      //   return ERROR_EMAIL_ALREADY_IN_USE;
+      // } else {
+      //   return '';
+      // }
     }
   }
 
