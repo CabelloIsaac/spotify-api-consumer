@@ -31,13 +31,39 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Divider(),
+              // SizedBox(height: 40),
+              Row(
+                children: [
+                  Expanded(
+                      child: Divider(
+                    color: Colors.white,
+                    height: 80,
+                    endIndent: 20,
+                  )),
+                  Text("or"),
+                  Expanded(
+                      child: Divider(
+                    height: 80,
+                    indent: 20,
+                    color: Colors.white,
+                  )),
+                ],
+              ),
               TextField(
                 decoration: InputDecoration(labelText: "Email"),
               ),
               TextField(
                 decoration: InputDecoration(labelText: "Password"),
               ),
+              SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.email),
+                  label: Text("Sign in with email"),
+                ),
+              )
             ],
           ),
         ),

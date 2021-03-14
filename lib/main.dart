@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_api_consumer/router.dart';
-import 'package:spotify_api_consumer/ui/screens/auth/login_screen.dart';
+import 'package:spotify_api_consumer/ui/screens/auth/login/login_screen.dart';
 
 void main() => runApp(MyApp());
 
