@@ -7,14 +7,21 @@ class ErrorMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
 
-    return Container(
-      child: Text(
-        "${authProvider.errorMessage.message}",
-        style: TextStyle(
-          color: Colors.red,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    );
+    return authProvider.errorMessage.error
+        ? Column(
+            children: [
+              SizedBox(height: 10),
+              Container(
+                child: Text(
+                  "${authProvider.errorMessage.message}",
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          )
+        : Container();
   }
 }

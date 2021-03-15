@@ -27,7 +27,6 @@ class LoginScreen extends StatelessWidget {
                     Header(),
                     SizedBox(height: 40),
                     EmailAndPasswordLogin(),
-                    SizedBox(height: 10),
                     ErrorMessage(),
                     LoginMethodsDivider(),
                     SocialLoginButtons(),
