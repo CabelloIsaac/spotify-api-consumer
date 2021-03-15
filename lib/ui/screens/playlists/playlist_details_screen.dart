@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spotify_api_consumer/models/spotify/playlist_details_response.dart';
 import 'package:spotify_api_consumer/providers/playlists_provider.dart';
+import 'package:spotify_api_consumer/ui/screens/artists/artist_details_screen.dart';
 import 'package:spotify_api_consumer/ui/widgets/header_text.dart';
 import 'package:spotify_api_consumer/ui/widgets/subtitle_text.dart';
 
@@ -55,6 +56,7 @@ class TrackItem extends StatelessWidget {
       ),
       title: Text(track.name),
       subtitle: Text(track.artists.first.name),
+      onTap: () => Navigator.pushNamed(context, ArtistDetailsScreen.route),
     );
   }
 }

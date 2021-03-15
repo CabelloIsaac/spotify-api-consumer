@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'ui/screens/artists/artist_details_screen.dart';
 import 'ui/screens/categories/category_details_screen.dart';
 import 'ui/screens/home/home_screen.dart';
 import 'ui/screens/login/login_screen.dart';
@@ -13,5 +14,6 @@ class MyRouter {
         PlaylistDetailsScreen(),
     CategoryDetailsScreen.route: (BuildContext context) =>
         CategoryDetailsScreen(),
+    ArtistDetailsScreen.route: (BuildContext context) => ArtistDetailsScreen(),
   };
 }
