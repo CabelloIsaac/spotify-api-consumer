@@ -30,6 +30,11 @@ class MyApp extends StatelessWidget {
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               primary: Colors.green,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20),
+                ),
+              ),
             ),
           ),
         ),
