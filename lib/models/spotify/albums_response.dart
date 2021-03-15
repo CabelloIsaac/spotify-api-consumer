@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'spotify_image.dart';
+
 NewReleasesResponse newReleasesResponseFromJson(String str) =>
     NewReleasesResponse.fromJson(json.decode(str));
 
@@ -74,7 +76,7 @@ class Album {
   ExternalUrls externalUrls;
   String href;
   String id;
-  List<AlbumImage> images;
+  List<SpotifyImage> images;
   String name;
   DateTime releaseDate;
   ReleaseDatePrecision releaseDatePrecision;
@@ -91,8 +93,8 @@ class Album {
         externalUrls: ExternalUrls.fromJson(json["external_urls"]),
         href: json["href"],
         id: json["id"],
-        images: List<AlbumImage>.from(
-            json["images"].map((x) => AlbumImage.fromJson(x))),
+        images: List<SpotifyImage>.from(
+            json["images"].map((x) => SpotifyImage.fromJson(x))),
         name: json["name"],
         releaseDate: DateTime.parse(json["release_date"]),
         releaseDatePrecision:
@@ -181,30 +183,6 @@ class ExternalUrls {
 enum ArtistType { ARTIST }
 
 final artistTypeValues = EnumValues({"artist": ArtistType.ARTIST});
-
-class AlbumImage {
-  AlbumImage({
-    this.height,
-    this.url,
-    this.width,
-  });
-
-  int height;
-  String url;
-  int width;
-
-  factory AlbumImage.fromJson(Map<String, dynamic> json) => AlbumImage(
-        height: json["height"],
-        url: json["url"],
-        width: json["width"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "height": height,
-        "url": url,
-        "width": width,
-      };
-}
 
 enum ReleaseDatePrecision { DAY }
 

@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
           //   Theme.of(context).textTheme,
           // ),
           accentColor: Colors.green,
-          primaryColor: Colors.green,
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               primary: Colors.green,

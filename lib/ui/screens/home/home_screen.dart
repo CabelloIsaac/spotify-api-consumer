@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_api_consumer/ui/widgets/header_text.dart';
+import 'package:spotify_api_consumer/ui/widgets/subtitle_text.dart';
 
 import 'widgets/categories_list.dart';
 import 'widgets/playlists_list.dart';
 import 'widgets/new_releases_list.dart';
-import 'widgets/header_text.dart';
-import 'widgets/subtitle_text.dart';
 
 class HomeScreen extends StatelessWidget {
   static final String route = "/HomeScreen";

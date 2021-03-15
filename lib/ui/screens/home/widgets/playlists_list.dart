@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spotify_api_consumer/models/spotify/playlists_response.dart';
+import 'package:spotify_api_consumer/providers/playlists_provider.dart';
 import 'package:spotify_api_consumer/ui/screens/playlists/playlist_details_screen.dart';
 
 import 'home_list_item.dart';
-
-import 'package:spotify_api_consumer/providers/playlists_provider.dart';
 
 class PlaylistsList extends StatelessWidget {
   const PlaylistsList({

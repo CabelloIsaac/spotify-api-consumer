@@ -2,5 +2,5 @@ class SpotifyConstants {
   static const String GET_CATEGORIES =
       "https://api.spotify.com/v1/browse/categories";
   static const String auth =
-      "Bearer BQCq4hTyULs_EFX_D6ENkgVtPZo_REwdZ7RFE9Xc2Bz7xedpweXtRWaWjWhx1mLDBaWg81_R_9W2CLrLY3dJf_Y_JyuiXb5j_eYJp1Hd8nl3L8SGlIx3mSaqbaC2BfaQ6xP6FroronH9XySmh5Uq3nzcJNyu9GYznIFPUpLNWMoOi1bP_9YFPqF-K3HJFVTsDey3szCg4R_VadFHtLXeSBOSySx5NRaZDZp2Ru0rqTl9sOmcYk2HozQPdTMxHBa2Xy_9Hlxi4kGTxAqPZonWpVHlxkLxB3MyeOrkavie";
+      "Bearer BQCi-TutFnCKioA-zp8pPkSpzxs1LQa9FDTjhNhjxWFdBWoDO0RTeCBWPi2SvDKchs6pt8YJELbCPz8EM9LH0un1DMJSajdnll6S6T-d5poSCdYJR0HKldE01DU0sRp_sKy7cH-AcRdN7fqSH-WV6HzO_Ezvb97okibcasT0lINb2Va2Js1sh2A2XN4vWb9xH-crnXVSO2f1fTcKAG2Pxfls8F-0eyg4mIgfq-dYUSGKZ5TrKK9R-sJ0QlpqHFPgX5-oFWhKXflLniAmtO4acwhVWBTQezksUuQqP9Uh";
 }

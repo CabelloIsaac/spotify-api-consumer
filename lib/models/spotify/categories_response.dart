@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'spotify_image.dart';
+
 CategoriesResponse categoriesResponseFromJson(String str) =>
     CategoriesResponse.fromJson(json.decode(str));
 
@@ -60,13 +62,14 @@ class Item {
   });
 
   String href;
-  List<Icon> icons;
+  List<SpotifyImage> icons;
   String id;
   String name;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         href: json["href"],
-        icons: List<Icon>.from(json["icons"].map((x) => Icon.fromJson(x))),
+        icons: List<SpotifyImage>.from(
+            json["icons"].map((x) => SpotifyImage.fromJson(x))),
         id: json["id"],
         name: json["name"],
       );
@@ -76,29 +79,5 @@ class Item {
         "icons": List<dynamic>.from(icons.map((x) => x.toJson())),
         "id": id,
         "name": name,
-      };
-}
-
-class Icon {
-  Icon({
-    this.height,
-    this.url,
-    this.width,
-  });
-
-  int height;
-  String url;
-  int width;
-
-  factory Icon.fromJson(Map<String, dynamic> json) => Icon(
-        height: json["height"],
-        url: json["url"],
-        width: json["width"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "height": height,
-        "url": url,
-        "width": width,
       };
 }

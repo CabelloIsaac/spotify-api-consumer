@@ -33,8 +33,7 @@ class CategoriesProvider extends ChangeNotifier {
       var response = await http.get(url, headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization':
-            'Bearer BQCq4hTyULs_EFX_D6ENkgVtPZo_REwdZ7RFE9Xc2Bz7xedpweXtRWaWjWhx1mLDBaWg81_R_9W2CLrLY3dJf_Y_JyuiXb5j_eYJp1Hd8nl3L8SGlIx3mSaqbaC2BfaQ6xP6FroronH9XySmh5Uq3nzcJNyu9GYznIFPUpLNWMoOi1bP_9YFPqF-K3HJFVTsDey3szCg4R_VadFHtLXeSBOSySx5NRaZDZp2Ru0rqTl9sOmcYk2HozQPdTMxHBa2Xy_9Hlxi4kGTxAqPZonWpVHlxkLxB3MyeOrkavie',
+        'Authorization': SpotifyConstants.auth,
       });
       print(response.body);
       if (response.statusCode == 200) {
