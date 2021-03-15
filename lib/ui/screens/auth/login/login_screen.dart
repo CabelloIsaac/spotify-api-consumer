@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:spotify_api_consumer/providers/auth_provider.dart';
 
 import 'widgets/email_and_password_login.dart';
+import 'widgets/error_message.dart';
 import 'widgets/header.dart';
 import 'widgets/loading_indicator.dart';
 import 'widgets/login_methods_divider.dart';
@@ -26,6 +27,8 @@ class LoginScreen extends StatelessWidget {
                     Header(),
                     SizedBox(height: 40),
                     EmailAndPasswordLogin(),
+                    SizedBox(height: 10),
+                    ErrorMessage(),
                     LoginMethodsDivider(),
                     SocialLoginButtons(),
                   ],
