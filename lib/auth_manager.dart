@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spotify_api_consumer/providers/auth_provider.dart';
-import 'package:spotify_api_consumer/ui/screens/auth/login/login_screen.dart';
+import 'package:spotify_api_consumer/ui/screens/login/login_screen.dart';
 
 class AuthScreenManager extends StatelessWidget {
   @override
