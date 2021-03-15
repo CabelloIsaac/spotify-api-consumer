@@ -34,7 +34,7 @@ class CategoriesProvider extends ChangeNotifier {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization':
-            'Bearer BQCc5joMP1Buzv1GHPOcKj_BFyhfJbhqVMWzOKFgVxzEbLkozm4zRAh0dJ3M_x35Jwe_mm8IIyIXIeXYwYKG6nvuz5U57KHheX48y0HByYDFH5S5U9Dn9nKKewYd44EeuM8WRkWDEa9ZOkBFC6s48HcAplCa3zNuazT8y8i_6KDxKBCWBOWDaI34w14HuiALEyM-LeQdkccU-zHwswAU6_lLbFvyFMKciWNrGhW6_g00csU9jGffyYBKsYh0kdeQXlfnm7F123EL5-OGEOySoEnu_3DEHPPr2NirH0KC',
+            'Bearer BQCq4hTyULs_EFX_D6ENkgVtPZo_REwdZ7RFE9Xc2Bz7xedpweXtRWaWjWhx1mLDBaWg81_R_9W2CLrLY3dJf_Y_JyuiXb5j_eYJp1Hd8nl3L8SGlIx3mSaqbaC2BfaQ6xP6FroronH9XySmh5Uq3nzcJNyu9GYznIFPUpLNWMoOi1bP_9YFPqF-K3HJFVTsDey3szCg4R_VadFHtLXeSBOSySx5NRaZDZp2Ru0rqTl9sOmcYk2HozQPdTMxHBa2Xy_9Hlxi4kGTxAqPZonWpVHlxkLxB3MyeOrkavie',
       });
       print(response.body);
       if (response.statusCode == 200) {

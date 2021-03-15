@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:spotify_api_consumer/auth_manager.dart';
+import 'package:spotify_api_consumer/providers/albums_provider.dart';
 import 'package:spotify_api_consumer/providers/auth_provider.dart';
 import 'package:spotify_api_consumer/providers/categories_provider.dart';
 import 'package:spotify_api_consumer/providers/playlists_provider.dart';
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider.instance()),
         ChangeNotifierProvider(create: (_) => CategoriesProvider.instance()),
         ChangeNotifierProvider(create: (_) => PlaylistsProvider.instance()),
+        ChangeNotifierProvider(create: (_) => AlbumsProvider.instance()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
