@@ -31,10 +31,9 @@ class MyApp extends StatelessWidget {
         home: AuthScreenManager(),
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData.dark().copyWith(
-          // textTheme: GoogleFonts.comfortaaTextTheme(
-          //   Theme.of(context).textTheme,
-          // ),
           accentColor: Colors.green,
+          appBarTheme: AppBarTheme(elevation: 0, color: Colors.black),
+          scaffoldBackgroundColor: Colors.black,
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               primary: Colors.green,
