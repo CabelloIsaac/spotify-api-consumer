@@ -18,7 +18,7 @@ class PlaylistsResponse {
   });
 
   String href;
-  List<Item> items;
+  List<Playlist> items;
   int limit;
   dynamic next;
   int offset;
@@ -28,7 +28,8 @@ class PlaylistsResponse {
   factory PlaylistsResponse.fromJson(Map<String, dynamic> json) =>
       PlaylistsResponse(
         href: json["href"],
-        items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+        items:
+            List<Playlist>.from(json["items"].map((x) => Playlist.fromJson(x))),
         limit: json["limit"],
         next: json["next"],
         offset: json["offset"],
@@ -47,8 +48,8 @@ class PlaylistsResponse {
       };
 }
 
-class Item {
-  Item({
+class Playlist {
+  Playlist({
     this.collaborative,
     this.description,
     this.externalUrls,
@@ -80,7 +81,7 @@ class Item {
   ItemType type;
   String uri;
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
+  factory Playlist.fromJson(Map<String, dynamic> json) => Playlist(
         collaborative: json["collaborative"],
         description: json["description"],
         externalUrls: ExternalUrls.fromJson(json["external_urls"]),

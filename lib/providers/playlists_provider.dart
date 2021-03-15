@@ -5,17 +5,23 @@ import 'dart:convert' as convert;
 import 'package:spotify_api_consumer/models/spotify/playlists_response.dart';
 
 class PlaylistsProvider extends ChangeNotifier {
-  List<Item> _items = [];
-  Item _item;
+  List<Playlist> _items = [];
+  Playlist _playlist;
 
   PlaylistsProvider.instance() {
     fetchPlaylists();
   }
 
-  List<Item> get items => _items;
+  List<Playlist> get items => _items;
+  Playlist get playlist => _playlist;
 
-  set items(List<Item> value) {
+  set items(List<Playlist> value) {
     _items = value;
+    notifyListeners();
+  }
+
+  set playlist(Playlist value) {
+    _playlist = value;
     notifyListeners();
   }
 
