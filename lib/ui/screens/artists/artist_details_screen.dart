@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_api_consumer/ui/widgets/subtitle_text.dart';
 
 class ArtistDetailsScreen extends StatelessWidget {
   static final String route = "/ArtistDetailsScreen";
@@ -37,8 +38,13 @@ class ArtistDetailsScreen extends StatelessWidget {
             ),
           ];
         },
-        body: Center(
-          child: Text("Sample Text"),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SubtitleText("Canciones top"),
+            ],
+          ),
         ),
       ),
     );

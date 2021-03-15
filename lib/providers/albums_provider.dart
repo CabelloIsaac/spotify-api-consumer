@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:spotify_api_consumer/models/spotify/album.dart';
 import 'dart:convert' as convert;
 
 import 'package:spotify_api_consumer/models/spotify/albums_response.dart';
