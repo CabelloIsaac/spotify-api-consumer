@@ -9,7 +9,7 @@ import 'package:spotify_api_consumer/utils/constants.dart';
 class PlaylistsProvider extends ChangeNotifier {
   List<Playlist> _items = [];
   Playlist _playlist;
-  List<PlaylistTrack> _playlistTracks;
+  List<PlaylistTrack> _playlistTracks = [];
 
   PlaylistsProvider.instance() {
     fetchPlaylists();

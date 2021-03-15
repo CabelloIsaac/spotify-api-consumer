@@ -14,23 +14,22 @@ class CategoriesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categoriesProvider = Provider.of<CategoriesProvider>(context);
-    final categories = categoriesProvider.items;
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: _buildCategoryItemsList(context, categories),
+        children: _buildCategoryItemsList(context, categoriesProvider),
       ),
     );
   }
 
   List<Widget> _buildCategoryItemsList(
-      BuildContext context, List<Item> categories) {
+      BuildContext context, CategoriesProvider categoriesProvider) {
     List<Widget> widgets = [SizedBox(width: 20)];
-    widgets.addAll(categories.map((e) => HomeListItem(
+    widgets.addAll(categoriesProvider.items.map((e) => HomeListItem(
           imageUrl: e.icons.first.url,
           onTap: () {
-            // categoriesProvider.playlist = e;
+            categoriesProvider.category = e;
             Navigator.pushNamed(context, CategoryDetailsScreen.route);
           },
           title: e.name,

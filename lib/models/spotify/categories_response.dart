@@ -24,7 +24,7 @@ class CategoriesResponse {
   });
 
   String href;
-  List<Item> items;
+  List<Category> items;
   int limit;
   String next;
   int offset;
@@ -34,7 +34,8 @@ class CategoriesResponse {
   factory CategoriesResponse.fromJson(Map<String, dynamic> json) =>
       CategoriesResponse(
         href: json["href"],
-        items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+        items:
+            List<Category>.from(json["items"].map((x) => Category.fromJson(x))),
         limit: json["limit"],
         next: json["next"],
         offset: json["offset"],
@@ -53,8 +54,8 @@ class CategoriesResponse {
       };
 }
 
-class Item {
-  Item({
+class Category {
+  Category({
     this.href,
     this.icons,
     this.id,
@@ -66,7 +67,7 @@ class Item {
   String id;
   String name;
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
+  factory Category.fromJson(Map<String, dynamic> json) => Category(
         href: json["href"],
         icons: List<SpotifyImage>.from(
             json["icons"].map((x) => SpotifyImage.fromJson(x))),
